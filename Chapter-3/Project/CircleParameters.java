@@ -18,6 +18,7 @@ public class CircleParameters {
         System.out.println("Diameter = " + radius * 2);
         System.out.println("Circumference = " + 2 * radius * Math.PI);
         System.out.println("Area = " + Math.PI * (radius * radius));
+        stdIn.close();
     }
     
 }

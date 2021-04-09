@@ -21,5 +21,6 @@ public class OneHunderBirthday {
         System.out.print("Enter the year were born: ");
         year = stdIn.nextInt();
         System.out.println("You will be 100 on " + month + " " + date + ", " + (year += 100));
+        stdIn.close();
     }
 }
