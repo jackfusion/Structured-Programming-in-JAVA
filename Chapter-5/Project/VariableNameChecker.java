@@ -2,21 +2,50 @@ import java.util.Scanner;
 public class VariableNameChecker {
     public static void main(String[] args){
         Scanner stdIn = new Scanner(System.in);
-        String name;                         // User entered name for variable
+        String line; // user entry
+        
+        // b.2
+        while(true) {
 
-        Char letter = name.charAt(0);        // used for checking each character in Name
-
-        int legal = 0;                        // 1 - Illegal, 2 - legal, but uses poor style, 3 - good
-
-        System.out.print("Enter a variable name (q to quit):")
-        name = stdIn.nextLine();
-
-        //check first character if it is correct or not
-        if (char.isUppercase()){
-            legal = 1;
+        	System.out.print("Enter a variable name (q to quit): ");
+        	line = stdIn.nextLine();
+        	if(line.toLowerCase().equals("q")) break;
+        	
+            switch(varNameChecker(line)) {
+	            case -1: System.out.println("Illegal."); break;
+	            case 1: System.out.println("Good!"); break;
+	            case 0: System.out.println("Legal, but uses poor style."); break;
+	            default: 
+            }
         }
-        // check each character to see if it is correct meaning if it has a $ for _
-        for(int i = 1; i<line.length(); i++)
-        if (char.isUppercase())
     }
+    public static int varNameChecker( String input ) {
+		// -1 0 1
+
+		int res = 1; 
+		char ch = input.charAt(0);
+		
+		if( !(Character.isLetter(ch) || ch == '$' || ch == '_') ) {
+			res = -1;
+		}
+		
+		if( Character.isLetter(ch) && Character.isUpperCase(ch) ) {
+			res = 0;
+		}
+
+		for (int i = 1; i < input.length(); i++)
+		{
+			ch = input.charAt(i);
+			
+			if( !(Character.isLetterOrDigit(ch) || ch == '$' || ch == '_')  ) {
+				res = -1;
+			}
+			
+			if( ch == '$' || ch == '_') {
+				res = 0;
+			}
+		}
+
+		return res;
+		}
 }

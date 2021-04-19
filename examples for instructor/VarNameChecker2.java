@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-public class VarNameChecker1 {
+public class VarNameChecker2 {
 
 	public static void main(String[] args) {
 		
 		Scanner stdIn = new Scanner(System.in);
-        String line; // user entry
+        String line = ""; // user entry
         
         // b.2
         while(true) {
@@ -21,17 +21,22 @@ public class VarNameChecker1 {
 	            default: 
             }
         }
+        
+        System.out.println("Have a nice day!");
 	}
 	
-	// b.3
+	/**
+	 * This method checks vars names ........................
+	 * @param input - user input variable name
+	 * @return  0 for poor styled; 1 for good; -1 for Illegal
+	 */
 	public static int varNameChecker( String input ) {
-		// -1 0 1
-
+		
 		int res = 1; 
 		char ch = input.charAt(0);
 		
 		if( !(Character.isLetter(ch) || ch == '$' || ch == '_') ) {
-			res = -1;
+			return -1;
 		}
 		
 		if( Character.isLetter(ch) && Character.isUpperCase(ch) ) {
@@ -43,7 +48,7 @@ public class VarNameChecker1 {
 			ch = input.charAt(i);
 			
 			if( !(Character.isLetterOrDigit(ch) || ch == '$' || ch == '_')  ) {
-				res = -1;
+				return -1;
 			}
 			
 			if( ch == '$' || ch == '_') {
@@ -52,5 +57,5 @@ public class VarNameChecker1 {
 		}
 
 		return res;
-		}
 	}
+}

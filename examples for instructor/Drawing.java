@@ -6,9 +6,9 @@ public class Drawing {
 		
 		// Rectangle !!
 		// Rectangle(5, 20, false); // isFilled
-		 Triangle(7);
+		// Triangle(7);
 		// Pyramid(7);
-		//Circle(22);
+		Circle(22);
 	}
 	
 	public static void Triangle(int size) {
